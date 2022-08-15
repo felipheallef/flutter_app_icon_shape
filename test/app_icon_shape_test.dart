@@ -25,10 +25,9 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    AppIconShape appIconShapePlugin = AppIconShape();
     MockAppIconShapePlatform fakePlatform = MockAppIconShapePlatform();
     AppIconShapePlatform.instance = fakePlatform;
   
-    expect(await appIconShapePlugin.getPlatformVersion(), '42');
+    expect(await AppIconShape.getPlatformVersion(), '42');
   });
 }

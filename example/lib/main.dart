@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:developer';
 
-import 'package:flutter/services.dart';
 import 'package:app_icon_shape/app_icon_shape.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:path_drawing/path_drawing.dart';
 
 import 'filled_path_painter.dart';
@@ -21,9 +21,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
   Path? _appMask;
-  final _appIconShapePlugin = AppIconShape();
 
   final shapes = {
     'Square': 'M50,0L100,0 100,100 0,100 0,0z',
@@ -40,15 +38,13 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion;
+    Path? appMask;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion = await _appIconShapePlugin.getPlatformVersion() ??
-          'Unknown platform version';
-      _appMask = await _appIconShapePlugin.getAppIconMask();
+      appMask = await AppIconShape.getAppIconMask();
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      log('Failed to get icon mask.');
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -57,7 +53,7 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _appMask = appMask;
     });
   }
 
@@ -159,10 +155,6 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
               ),
-              // const Padding(
-              //   padding: EdgeInsets.only(top: 38.0),
-              //   child: Text('Most common adaptive icon shapes:'),
-              // ),
             ],
           );
         }),
