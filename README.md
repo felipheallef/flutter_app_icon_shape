@@ -22,9 +22,10 @@ Import the library.
 import 'package:app_icon_shape/app_icon_shape.dart';
 ```
 
-Then invoke the static `getAppIconMask` method anywhere in your Dart code.
+Then use the static `getAppIconMask` method anywhere in your Dart code.
 
 ```dart
 Path? iconMask = await AppIconShape.getAppIconMask();
 ```
 
+See the [example](https://github.com/felipheallef/flutter_app_icon_shape/blob/main/example/lib/main.dart) app to learn how to use it in your app's UI.
