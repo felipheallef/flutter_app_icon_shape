@@ -1,7 +1,7 @@
 name: app_icon_shape
 description: A Flutter plugin to get the platform's app launcher icon's shape.
 version: 0.0.1
-homepage:
+homepage: https://github.com/felipheallef/flutter_app_icon_shape
 
 environment:
   sdk: ">=2.17.5 <3.0.0"

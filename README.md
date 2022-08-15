@@ -2,6 +2,14 @@
 
 A Flutter plugin to get the platform's app launcher icon's shape.
 
+## Platform Support
+
+| Android | iOS | MacOS | Web | Linux | Windows |
+| :-----: | :-: | :---: | :-: | :---: | :----: |
+|   ✔️    | ❌  |  ❌   | ❌  |  ❌   |   ❌   |
+
+Support for iOS is planned but not currently implemented.
+
 ## Getting Started
 
 This project is a starting point for a Flutter
