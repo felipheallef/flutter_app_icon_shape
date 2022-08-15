@@ -9,7 +9,7 @@ class AppIconShape {
     return AppIconShapePlatform.instance.getPlatformVersion();
   }
 
-  /// On Android, returns
+  /// On Android, returns the path that is used by AdaptiveIconDrawable class to crop launcher icons.
   static Future<Path?> getAppIconMask() {
     return AppIconShapePlatform.instance.getAppIconMask();
   }
